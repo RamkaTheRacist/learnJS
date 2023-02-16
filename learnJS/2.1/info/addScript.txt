@@ -1,0 +1,10 @@
+
+<script>
+    alert( 'Привет, мир!' );
+</script>
+
+
+!!!OR!!!
+
+<script src="/js/script1.js"></script>
+
