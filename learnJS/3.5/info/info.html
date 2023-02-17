@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- добавим стили mocha для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+    <!-- добавляем сам фреймворк mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+        // включаем режим тестирования в стиле BDD
+        mocha.setup('bdd');
+    </script>
+    <!-- добавим chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+        // chai предоставляет большое количество функций. Объявим assert глобально
+        let assert = chai.assert;
+    </script>
+</head>
+
+<body>
+
+    <script>
+        function pow(x, n) {
+            /* Здесь будет реализация функции, пока пусто */
+        }
+    </script>
+
+    <!-- скрипт со спецификацией (describe, it...) -->
+    <script src="test.js"></script>
+
+    <!-- элемент с id="mocha" будет содержать результаты тестов -->
+    <div id="mocha"></div>
+
+    <!-- запускаем тесты! -->
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
+
+<!-- Условно страницу можно разделить на пять частей:
+
+Тег <head> содержит сторонние библиотеки и стили для тестов.
+Тег <script> содержит тестируемую функцию, в нашем случае – pow.
+Тесты – в нашем случае внешний скрипт test.js, который содержит спецификацию describe("pow", ...), представленную выше.
+HTML-элемент <div id="mocha"> будет использован фреймворком Mocha для вывода результатов тестирования.
+Запуск тестов производится командой mocha.run(). -->
