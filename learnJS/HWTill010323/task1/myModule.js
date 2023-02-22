@@ -49,7 +49,7 @@ export function showCountOfWords(string) {                               //Ес�
 //  * @param {string} string Input data
 //  * @returns {number} Returns count of words
 //  */
-// export function showCountOfWords(string) {                                 //Подcчитывающие кол-во слов в строке   //Если в строке только слова и правильная пунктуация
+// export function showCountOfWords(string) {                                //Если в строке только слова и правильная пунктуация
 //     let tmpArray = string.split(" ");
 //     return tmpArray.length;
 // }
@@ -59,7 +59,7 @@ export function showCountOfWords(string) {                               //Ес�
  * @param {string} string Input data
  * @returns {Array[]} Returns sorted array of arrays with `[word, number]` where firsts are not unique words
  */
-export function showCountOfUniqueWords(string) {                         //Подсчитывающий, уникальные слова
+export function showCountOfUniqueWords(string) {
     let resultObject = {};
     let array = string.replace(/(\p{P})|(\d+)|([-+/*]+)/gu, "").toLowerCase().split(" ");
     for (const item of array) {
