@@ -1,20 +1,36 @@
-export function convertStringFirstLetterUpOtherLow(string) {   //Преобразование строки к нижнему регистру, но первая буква большая. “Abscd”
+/**
+ * Transforms string. Sets first letter in uppercase. Others - in lowercase.
+ * 
+ * @param {string} string Input data
+ * @returns {string} Returns string
+ */
+export function transformStringFirstLetterUpOtherLow(string) {
 
     if (!string) {
         return string;
     }
     return string[0].toUpperCase() + string.slice(1).toLowerCase();
 }
-
-export function convertStringWithRightSpaces(string) {         //Преобразование строки с целью правильно расстановки пробелов.             
+/**
+ * Transforms string for setting spaces in right positions.
+ * 
+ * @param {string} string Input data
+ * @returns {string} Returns string
+ */
+export function transformStringWithRightSpaces(string) {
     if (!string) {
         return string;
     }
     return string.replace(/(\s{2})|(\s(?=\p{P}))/gu, "").replace(/(\p{P}(?=\S))/gui, '$1 ');
 }
-
-export function showCountOfWords(string) {                               //Подcчитывающие кол-во слов в строке   //Если в строке есть числа и прочий мусор     
-    if(!string){
+/**
+ * Shows count of words in string
+ * 
+ * @param {string} string Input data
+ * @returns {number} Returns count of words or `-1` as error
+ */
+export function showCountOfWords(string) {                               //Если в строке есть числа и прочий мусор     
+    if (!string) {
         return -1;
     }
     let result = 0;
@@ -27,12 +43,22 @@ export function showCountOfWords(string) {                               //По�
     }
     return result;
 }
-
-export function showCountOfWords(string) {                                 //Подcчитывающие кол-во слов в строке   //Если в строке только слова и правильная пунктуация
-    let tmpArray = string.split(" ");
-    return tmpArray.length;
-}
-
+// /**
+//  * Show count of words in string
+//  * 
+//  * @param {string} string Input data
+//  * @returns {number} Returns count of words
+//  */
+// export function showCountOfWords(string) {                                 //Подcчитывающие кол-во слов в строке   //Если в строке только слова и правильная пунктуация
+//     let tmpArray = string.split(" ");
+//     return tmpArray.length;
+// }
+/**
+ * Shows count of unique words in string
+ * 
+ * @param {string} string Input data
+ * @returns {Array[]} Returns sorted array of arrays with `[word, number]` where firsts are not unique words
+ */
 export function showCountOfUniqueWords(string) {                         //Подсчитывающий, уникальные слова
     let resultObject = {};
     let array = string.replace(/(\p{P})|(\d+)|([-+/*]+)/gu, "").toLowerCase().split(" ");
@@ -53,7 +79,7 @@ export function showCountOfUniqueWords(string) {                         //По�
     //return resultObject;                         //Не отсортированный объект, в котором просто лежат слова, как "ключи" и количество раз сколько встретилось, как значения.
 
     return Object.entries(resultObject).sort((a, b) => b[1] - a[1]);          //Отсортированный массив, в котором лежат [word, times]
-    
+
     //return Object.entries(resultObject).filter((item) => item[1] == 1);         //Массив, в котором лежат ТОЛЬКО уникальные [word, times]
 
     /*let result = "";                                                                          // Если нужен красивый вывод, как в примере ввиде строки
